@@ -10,5 +10,6 @@ class Categories extends Model
     protected $fillable = [
         'name',
         'discreption',
+        'icon',
     ];
 }

@@ -18,11 +18,13 @@ class CategoriesController extends Controller
         $validation = $req->validate([
             'cat_name'=>'required|string|max:255',
             'cat_desc'=>'nullable|string|max:255',
+            'cat_icon'=>'nullable|string|max:255',
         ]);
 
         $data = [
             'name'=>$req->cat_name,
-            'discreption'=>$req->cat_desc
+            'discreption'=>$req->cat_desc,
+            'icon'=>$req->cat_icon
         ];
 
         $items=Categories::create($data);
@@ -52,7 +54,8 @@ class CategoriesController extends Controller
         $data=Categories::find($req->id);
         $data->update([
             'name'=>$req->cat_name,
-            'discreption'=>$req->cat_desc
+            'discreption'=>$req->cat_desc,
+            'icon'=>$req->cat_icon
         ]);
         return redirect()->route('categories');
     }

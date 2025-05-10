@@ -10,4 +10,10 @@ class DashboardController extends Controller
     {
         return view('dashboard.index');
     }
+    public function logout(Request $req)
+    {
+        Auth::logout();
+        return redirect('/login');
+    }
+
 }
